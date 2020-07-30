@@ -9,4 +9,8 @@ import java.util.List;
 @Component
 public interface BookMapper {
     List<BookObject> selectAllBooks();
+    BookObject selectBookByName(String name);
+    void insertBook(BookObject bookObject);
+    void updateBook(BookObject bookObject);
+    void deleteBook(String bookId);
 }

@@ -7,4 +7,26 @@
         SELECT bookId,name,publishHouse,author,abstractBook,publishDate
         FROM t_book
     </select>
+    <select id="selectBookByName" resultType="bookObject">
+        SELECT bookId,name,publishHouse,author,abstractBook,publishDate
+        FROM t_book WHERE name like '%' #{name} '%'
+    </select>
+    <insert id="insertBook">
+        INSERT INTO t_book(bookId,name,publishHouse,author,abstractBook,publishDate)
+        VALUES (#{bookId},#{name},#{publishHouse},#{author},#{abstractBook},#{publishDate})
+    </insert>
+
+    <update id="updateBook">
+        UPDATE t_book SET
+        name=#{name},
+        publishHouse=#{publishHouse},
+        author=#{author},
+        abstractBook=#{abstractBook},
+        publishDate=#{publishDate}
+        WHERE bookId=#{bookId}
+    </update>
+
+    <delete id="deleteBook">
+        DELETE FROM t_book WHERE bookId=#{bookId}
+    </delete>
 </mapper>
